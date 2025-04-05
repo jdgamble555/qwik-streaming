@@ -1,5 +1,6 @@
 import { component$, Resource } from "@builder.io/qwik";
 import { routeLoader$, type DocumentHead } from "@builder.io/qwik-city";
+import Loading from "./loading";
 
 
 type Todo = {
@@ -27,6 +28,7 @@ export default component$(() => {
       <h1 class="text-2xl">Todo</h1>
       <Resource
         value={todo}
+        onPending={() => <Loading />}
         onResolved={(todo) => <h2>{todo.title}</h2>}
       />
     </main>
